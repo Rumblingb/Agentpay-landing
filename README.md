@@ -53,15 +53,21 @@ npm start
 agentpay-landing/
 ├── src/
 │   ├── app/
-│   │   ├── layout.tsx       # Root layout with metadata
-│   │   ├── page.tsx         # Home page
-│   │   └── globals.css      # Global styles
+│   │   ├── docs/
+│   │   │   ├── page.tsx         # /docs route (API reference)
+│   │   │   └── DocsClient.tsx   # Redoc client component
+│   │   ├── layout.tsx           # Root layout with SEO metadata
+│   │   ├── page.tsx             # Home page
+│   │   └── globals.css          # Global styles
 │   └── components/
-│       ├── Hero.tsx         # Hero section with code snippet
-│       ├── Features.tsx     # Features and flow diagram
-│       ├── Pricing.tsx      # Pricing comparison
-│       └── Footer.tsx       # Footer with links
-├── public/                  # Static assets
+│       ├── Hero.tsx             # Hero section with CTAs and code snippet
+│       ├── Features.tsx         # Features and flow diagram
+│       ├── Demo.tsx             # Demo walkthrough (intent → pay → verified)
+│       ├── Pricing.tsx          # 3-tier pricing table
+│       └── Footer.tsx           # Footer with links
+├── public/
+│   └── openapi.yaml             # OpenAPI spec served to Redoc
+├── .env.example                 # Environment variable reference
 ├── next.config.js
 ├── tailwind.config.js
 ├── tsconfig.json
@@ -100,14 +106,19 @@ All styling uses Tailwind CSS utility classes. Key customizations:
 - **Typography**: Using default system fonts for performance
 - **Spacing**: Tailwind's spacing scale (4, 8, 12, etc.)
 
-### Environment Variables (Optional)
+### Environment Variables
 
-Create a `.env.local` file for any API keys or configuration:
+Create a `.env.local` file (copy from `.env.example`):
 
-```env
-NEXT_PUBLIC_API_URL=https://api.agentpay.ai
-NEXT_PUBLIC_GITHUB_URL=https://github.com/agentpay
+```bash
+cp .env.example .env.local
 ```
+
+| Variable | Default | Description |
+|---|---|---|
+| `NEXT_PUBLIC_DASHBOARD_URL` | `http://localhost:3000` | Merchant dashboard URL (signup/login). Used for the "Merchant Onboarding" CTA and pricing "Start" buttons. |
+| `NEXT_PUBLIC_SDK_DOCS_URL` | `/docs` | SDK/agent documentation URL. Can be an external URL (e.g. `https://docs.agentpay.ai/sdk`) or the built-in `/docs` page. |
+| `NEXT_PUBLIC_SITE_URL` | `https://agentpay.ai` | Canonical site URL for SEO metadata (og:url, etc.). |
 
 ## Deployment
 
