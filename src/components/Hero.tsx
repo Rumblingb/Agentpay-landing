@@ -4,6 +4,9 @@ import Link from "next/link"
 import { ArrowRight, CheckCircle2, Copy, Check } from "lucide-react"
 import { useState } from "react"
 
+const DASHBOARD_URL = process.env.NEXT_PUBLIC_DASHBOARD_URL || 'http://localhost:3000'
+const SDK_DOCS_URL = process.env.NEXT_PUBLIC_SDK_DOCS_URL || '/docs'
+
 const codeSnippet = `const agentpay = require('agentpay');
 
 app.get('/api/premium-data', 
@@ -52,21 +55,21 @@ export default function Hero() {
             Accept payments from ChatGPT, Claude, or any autonomous agent. Protocol-agnostic. Instant settlement. 0.8% fees.
           </p>
 
-          {/* CTAs - Reordered & Refined */}
+          {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 w-full justify-center pt-4">
-            <Link
-              href="/docs"
+            <a
+              href={DASHBOARD_URL}
               className="inline-flex h-12 items-center justify-center rounded-lg bg-white px-8 text-sm font-semibold text-slate-950 shadow-lg transition-all hover:bg-slate-100 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
             >
-              Get API Keys
+              Merchant Onboarding
               <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-            <Link
-              href="/docs"
+            </a>
+            <a
+              href={SDK_DOCS_URL}
               className="inline-flex h-12 items-center justify-center rounded-lg border border-slate-700 bg-slate-900/50 backdrop-blur-sm px-8 text-sm font-semibold text-slate-200 shadow-sm transition-all hover:bg-slate-800 hover:border-slate-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400"
             >
-              View Docs
-            </Link>
+              Agents → SDK
+            </a>
           </div>
 
           {/* Code Block - Minimal & Functional */}
