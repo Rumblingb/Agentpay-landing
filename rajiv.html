@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rajiv Baskaran</title>
+  <meta name="description" content="Rajiv Baskaran — I build AI systems end to end. Founder, AgentPay Labs. London, UK.">
+  <meta property="og:title" content="Rajiv Baskaran">
+  <meta property="og:description" content="I build AI systems end to end. Founder, AgentPay Labs. London, UK.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>⚡</text></svg>">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-primary: #0a0a0b;
+      --bg-secondary: #121214;
+      --bg-card: #18181b;
+      --border: #27272a;
+      --text-primary: #fafafa;
+      --text-secondary: #a1a1aa;
+      --text-muted: #71717a;
+      --accent: #6366f1;
+      --accent-hover: #818cf8;
+      --accent-glow: rgba(99, 102, 241, 0.12);
+      --gradient: linear-gradient(135deg, #6366f1, #8b5cf6);
+      --radius: 12px;
+      --radius-sm: 8px;
+    }
+
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 80px 24px 80px;
+    }
+
+    /* Hero */
+    .hero {
+      margin-bottom: 64px;
+    }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .location-tag {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 4px 12px;
+      letter-spacing: 0.02em;
+    }
+
+    .available-tag {
+      font-size: 0.8rem;
+      color: #22c55e;
+      background: rgba(34, 197, 94, 0.08);
+      border: 1px solid rgba(34, 197, 94, 0.2);
+      border-radius: 999px;
+      padding: 4px 12px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-tagline {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      max-width: 560px;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+
+    .hero-links a {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.15s;
+    }
+
+    .hero-links a:hover { color: var(--text-primary); }
+
+    /* Divider */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 48px 0;
+    }
+
+    /* Section */
+    .section { margin-bottom: 56px; }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .section-text {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+    }
+
+    .section-text strong {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    /* Build cards */
+    .build-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .build-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      transition: border-color 0.2s;
+    }
+
+    .build-card:hover { border-color: rgba(99, 102, 241, 0.3); }
+
+    .build-card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+
+    .build-card-desc {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .build-card-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+      background: var(--accent-glow);
+      border-radius: 4px;
+      padding: 2px 8px;
+      margin-bottom: 10px;
+    }
+
+    /* Map list */
+    .map-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .map-item {
+      padding-left: 20px;
+      border-left: 2px solid var(--border);
+      transition: border-color 0.2s;
+    }
+
+    .map-item:hover { border-color: var(--accent); }
+
+    .map-item-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .map-item-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* CTA */
+    .cta {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.06), rgba(139, 92, 246, 0.04));
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      border-radius: var(--radius);
+      padding: 36px;
+      text-align: center;
+    }
+
+    .cta p {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+
+    .cta-links {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gradient);
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 10px 22px;
+      border-radius: var(--radius-sm);
+      transition: opacity 0.15s;
+    }
+
+    .btn-primary:hover { opacity: 0.88; }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 10px 22px;
+      border-radius: var(--radius-sm);
+      transition: border-color 0.15s;
+    }
+
+    .btn-secondary:hover { border-color: rgba(99, 102, 241, 0.4); }
+
+    /* Footer */
+    .footer {
+      margin-top: 48px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .footer a { color: var(--text-muted); text-decoration: none; }
+    .footer a:hover { color: var(--text-secondary); }
+
+    @media (max-width: 600px) {
+      .container { padding: 48px 20px 60px; }
+      .hero h1 { font-size: 1.9rem; }
+      .cta { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-meta">
+        <span class="location-tag">London, UK</span>
+        <span class="available-tag">Open to opportunities</span>
+      </div>
+      <h1>Rajiv Baskaran</h1>
+      <p class="hero-tagline">
+        I build AI systems end to end — agentic orchestration, fine-tuned models, autonomous agents trading live prediction markets with real money as the reward signal. Founder, AgentPay Labs.
+      </p>
+      <div class="hero-links">
+        <a href="mailto:Rajiv_baskaran@agentpay.so">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+          Rajiv_baskaran@agentpay.so
+        </a>
+        <a href="https://github.com/Rumblingb" target="_blank">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          github.com/Rumblingb
+        </a>
+        <a href="tel:+447783797877">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +44 7783797877
+        </a>
+        <a href="https://agentpay.so" target="_blank">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          agentpay.so
+        </a>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Thesis -->
+    <div class="section">
+      <p class="section-label">The Thesis</p>
+      <p class="section-text">
+        Silver and Sutton are right. <strong>The ceiling on imitation learning is fundamental, not a scaling problem.</strong> Intelligence that only recombines what humans produced cannot transcend it. The next leap requires agents that generate their own experience through action and consequence — not inherited knowledge, but discovered intelligence. I believe this is how it has to be done.
+      </p>
+    </div>
+
+    <!-- What I've Built -->
+    <div class="section">
+      <p class="section-label">What I Have Built</p>
+      <div class="build-grid">
+
+        <div class="build-card">
+          <span class="build-card-tag">RL in the wild</span>
+          <div class="build-card-title">Autonomous trading agents in live markets</div>
+          <div class="build-card-desc">Built and deployed agents that trade on Polymarket and Kalshi using real money as the reward signal. Multi-source signal systems combining weather ensemble forecasts and BTC microstructure. Kelly criterion sizing, signal calibration, live P&L. Observation, action, reward, consequence — in a real environment, not a simulation.</div>
+        </div>
+
+        <div class="build-card">
+          <span class="build-card-tag">AgentPay Labs</span>
+          <div class="build-card-title">AgentPay MCP ecosystem — 30+ original servers</div>
+          <div class="build-card-desc">The infrastructure layer that makes agent actions consequential in real-world environments. Identity and reputation, cryptographic proof of work, smart contracts between agents with enforceable penalties, immutable audit trails, safety monitoring, wallet and budget management. Built from scratch. Agents need governance structures to operate with real consequences — I built those structures.</div>
+        </div>
+
+        <div class="build-card">
+          <span class="build-card-tag">Foundation model</span>
+          <div class="build-card-title">Kronos</div>
+          <div class="build-card-desc">A foundation model for the language of financial markets. Domain-specific, trained on financial data, not a general-purpose fine-tune.</div>
+        </div>
+
+        <div class="build-card">
+          <span class="build-card-tag">Hardware</span>
+          <div class="build-card-title">Local model stack and compute cluster</div>
+          <div class="build-card-desc">Fine-tuned and distilled small models on local hardware. Ollama-served inference, distributed workflows across machines. I understand the hardware and inference layer — not just the API layer.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Where I Map -->
+    <div class="section">
+      <p class="section-label">Where I Map at Ineffable</p>
+      <p class="section-text" style="margin-bottom: 24px;">
+        The hardest engineering problem between RL research and a working superlearner is making agent actions consequential and measurable. I have been building exactly this.
+      </p>
+      <div class="map-list">
+        <div class="map-item">
+          <div class="map-item-title">Tool and environment infrastructure</div>
+          <div class="map-item-desc">Agents need structured interfaces to act through. AgentPay MCP is exactly this. I know what it takes to make an agent's actions consequential in a real environment, not a sandbox.</div>
+        </div>
+        <div class="map-item">
+          <div class="map-item-title">Experience collection pipelines</div>
+          <div class="map-item-desc">Logging what agents did, what outcome followed, what signal that generated. The data infrastructure that makes experience-driven learning possible at scale.</div>
+        </div>
+        <div class="map-item">
+          <div class="map-item-title">Eval loops and feedback harnesses</div>
+          <div class="map-item-desc">Measuring whether an agent is improving is an engineering problem, not a research one. I have run production agentic loops and built automated evaluation systems.</div>
+        </div>
+        <div class="map-item">
+          <div class="map-item-title">Early product prototyping</div>
+          <div class="map-item-desc">Moving from research to something that demonstrates superlearner capabilities in constrained domains. Bridging the lab and proof of capability.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- What I'm Looking For -->
+    <div class="section">
+      <p class="section-label">What I Am Looking For</p>
+      <p class="section-text">
+        No title requirement. I want to work close to the frontier, contribute wherever the gap is largest, and learn from the best people doing this. I will do unglamorous engineering if it moves the mission forward. <strong>I execute fast and I learn in the open.</strong> Open to London.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <p>I am not a researcher with papers. My edge is that I build real systems that run in real environments — and I want to bring that closer to the frontier of reinforcement learning.</p>
+      <div class="cta-links">
+        <a href="mailto:Rajiv_baskaran@agentpay.so" class="btn-primary">
+          Get in touch
+        </a>
+        <a href="https://github.com/Rumblingb" target="_blank" class="btn-secondary">
+          View work on GitHub
+        </a>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p><a href="https://agentpay.so">agentpay.so</a> &nbsp;·&nbsp; London, UK &nbsp;·&nbsp; 2026</p>
+    </div>
+
+  </div>
+</body>
+</html>
